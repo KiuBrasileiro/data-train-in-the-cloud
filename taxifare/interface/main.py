@@ -10,6 +10,7 @@ from taxifare.ml_logic.data import get_data_with_cache, clean_data, load_data_to
 from taxifare.ml_logic.model import initialize_model, compile_model, train_model, evaluate_model
 from taxifare.ml_logic.preprocessor import preprocess_features
 from taxifare.ml_logic.registry import load_model, save_model, save_results
+
 def preprocess(min_date:str = '2009-01-01', max_date:str = '2015-01-01') -> None:
     """
     - Query the raw dataset from Le Wagon's BigQuery dataset
@@ -69,7 +70,6 @@ def preprocess(min_date:str = '2009-01-01', max_date:str = '2015-01-01') -> None
         table=f'processed_{DATA_SIZE}',
         truncate=True
     )
-    # $CHA_END
 
     print("✅ preprocess() done \n")
 def train(
